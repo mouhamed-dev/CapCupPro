@@ -59,3 +59,12 @@ document.querySelectorAll(".avantage-item").forEach((item) => {
   item.style.transition = "all 0.5s ease-out";
   observer.observe(item);
 });
+
+function scrollToForm() {
+  const formElement = document.getElementById('contact');
+  formElement.scrollIntoView({ behavior: 'smooth' });
+}
+
+document.querySelectorAll('.abonnement-button').forEach(button => {
+  button.addEventListener('click', scrollToForm);
+});
