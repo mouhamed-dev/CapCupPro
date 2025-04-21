@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Takku Liggeey - CapCut Pro</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Section 1 - Accueil & Présentation -->
+    <section id="accueil" class="hero">
+        <div class="container">
+            <h1>Takku Liggeey</h1>
+            <h2>Montez vos vidéos comme un pro avec CapCut Premium</h2>
+            <p>Takku Liggeey vous propose l'activation de CapCut Pro à un prix abordable. Profitez de toutes les fonctionnalités premium pour créer des vidéos professionnelles sans limites.</p>
+            <button class="cta-button" onclick="scrollToSection('offres')">Découvrir les offres</button>
+        </div>
+    </section>
+
+    <!-- Section 2 - Offres d'abonnement -->
+    <section id="offres" class="offres">
+        <div class="container">
+            <h2>Nos Offres d'Abonnement</h2>
+            <div class="offres-grid">
+                <!-- Offre 1 Mois -->
+                <div class="offre-card">
+                    <h3>1 Mois</h3>
+                    <div class="prix">2500F</div>
+                    <ul>
+                        <li>Accès complet CapCut Pro</li>
+                        <li>Sans watermark</li>
+                        <li>Assistance Takku Liggeey</li>
+                    </ul>
+                    <button class="abonnement-button">Je m'abonne</button>
+                </div>
+
+                <!-- Offre 3 Mois -->
+                <div class="offre-card">
+                    <h3>3 Mois</h3>
+                    <div class="prix">6000F</div>
+                    <div class="prix-mois">soit 2000F/mois</div>
+                    <ul>
+                        <li>Tout ce qui est inclus dans 1 mois</li>
+                        <li>Bibliothèque musicale étendue</li>
+                        <li>Stockage cloud supplémentaire</li>
+                    </ul>
+                    <button class="abonnement-button">Je m'abonne</button>
+                </div>
+
+                <!-- Offre 6 Mois -->
+                <div class="offre-card">
+                    <h3>6 Mois</h3>
+                    <div class="prix">10 500F</div>
+                    <div class="prix-mois">soit 1750F/mois</div>
+                    <ul>
+                        <li>Tout ce qui est inclus dans 3 mois</li>
+                        <li>Accès aux modèles exclusifs</li>
+                        <li>Transitions personnalisées</li>
+                    </ul>
+                    <button class="abonnement-button">Je m'abonne</button>
+                </div>
+
+                <!-- Offre 1 An -->
+                <div class="offre-card">
+                    <h3>1 An</h3>
+                    <div class="prix">18 000F</div>
+                    <div class="prix-mois">soit 1500F/mois</div>
+                    <ul>
+                        <li>Toutes les fonctionnalités pro</li>
+                        <li>Économisez + de 12 000F</li>
+                        <li>Support premium 7j/7</li>
+                    </ul>
+                    <button class="abonnement-button">Je m'abonne</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 3 - Avantages -->
+    <section id="avantages" class="avantages">
+        <div class="container">
+            <h2>Pourquoi choisir CapCut Pro avec Takku Liggeey ?</h2>
+            <div class="avantages-grid">
+                <div class="avantage-item">
+                    <!-- <i class="fas fa-magic"></i> -->
+                     
+                    <h3>Effets Professionnels</h3>
+                    <p>Accédez à des centaines d'effets pro</p>
+                </div>
+                <div class="avantage-item">
+                    <i class="fas fa-music"></i>
+                    <h3>Bibliothèque Musicale</h3>
+                    <p>Musiques libres de droits</p>
+                </div>
+                <div class="avantage-item">
+                    <i class="fas fa-film"></i>
+                    <h3>Exportation HD</h3>
+                    <p>Sans filigrane, illimité</p>
+                </div>
+                <div class="avantage-item">
+                    <i class="fas fa-desktop"></i>
+                    <h3>Interface Intuitive</h3>
+                    <p>Facile à utiliser, sans expérience</p>
+                </div>
+                <div class="avantage-item">
+                    <i class="fas fa-mobile-alt"></i>
+                    <h3>Multi-plateforme</h3>
+                    <p>Android, iOS, PC</p>
+                </div>
+                <div class="avantage-item">
+                    <i class="fas fa-bolt"></i>
+                    <h3>Performance Optimisée</h3>
+                    <p>Montage rapide, fluide</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 4 - Contact & Commande -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Passer Commande</h2>
+            <form id="commande-form">
+                <div class="form-group">
+                    <label for="nom">Nom complet</label>
+                    <input type="text" id="nom" name="nom" required>
+                </div>
+                <div class="form-group">
+                    <label for="whatsapp">Numéro WhatsApp</label>
+                    <input type="tel" id="whatsapp" name="whatsapp" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Adresse email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="forfait">Forfait</label>
+                    <select id="forfait" name="forfait" required>
+                        <option value="1mois">1 Mois – 2500F</option>
+                        <option value="3mois">3 Mois – 6000F</option>
+                        <option value="6mois">6 Mois – 10500F</option>
+                        <option value="1an">1 An – 18000F</option>
+                    </select>
+                </div>
+                <button type="submit" class="submit-button">Envoyer la demande</button>
+            </form>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html> 
