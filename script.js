@@ -1,3 +1,8 @@
+// Initialisation de EmailJS
+(function () {
+  emailjs.init("TnzGfbRG75wr6JGKx");
+})();
+
 // Fonction pour le défilement fluide
 function scrollToSection(sectionId) {
   const section = document.getElementById(sectionId);
@@ -10,24 +15,108 @@ document
   .addEventListener("submit", function (e) {
     e.preventDefault();
 
+    const form = this;
     // Récupération des données du formulaire
     const formData = {
-      nom: document.getElementById("nom").value,
-      whatsapp: document.getElementById("whatsapp").value,
+      from_name: document.getElementById("nom").value,
+      whatsapp:
+        document.getElementById("phone-prefix").value +
+        document.getElementById("whatsapp").value,
       email: document.getElementById("email").value,
       forfait: document.getElementById("forfait").value,
     };
+    console.log(formData.forfait);
+    // Obtenir la date du jour
+    const today = new Date();
 
-    // Ici, vous pouvez ajouter la logique pour envoyer les données à votre backend
-    // Par exemple, en utilisant fetch() ou en redirigeant vers WhatsApp
+    // Fonction pour formater la date en "Samedi 24 mai 2025"
+    function formatDate(date) {
+      return date.toLocaleDateString("fr-FR", {
+        weekday: "long",
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+      });
+    }
 
-    // Message de confirmation
-    alert(
-      "Votre demande a été envoyée avec succès ! Nous vous contacterons bientôt."
-    );
+    // Initialisation des variables personnalisées
+    let type = "";
+    let expireDate = new Date(today); // Copie de la date actuelle
+    let total = "";
 
-    // Réinitialisation du formulaire
-    this.reset();
+    // Traitement du forfait
+    switch (formData.forfait) {
+      case "1mois":
+        type = "1 Mois - 2500F";
+        expireDate.setMonth(today.getMonth() + 1);
+        total = "2 500F";
+        linkPay = "https://pay.wave.com/m/M_sn_3rVgFeQKkRIX/c/sn/?amount=2500";
+        break;
+      case "3mois":
+        type = "3 Mois - 6000F";
+        expireDate.setMonth(today.getMonth() + 3);
+        total = "6 000F";
+        linkPay = "https://pay.wave.com/m/M_sn_3rVgFeQKkRIX/c/sn/?amount=6000";
+        break;
+      case "6mois":
+        type = "6 Mois - 10500F";
+        expireDate.setMonth(today.getMonth() + 6);
+        total = "10 500F";
+        linkPay = "https://pay.wave.com/m/M_sn_3rVgFeQKkRIX/c/sn/?amount=10500";
+        break;
+      case "1an":
+        type = "1 An - 18000F";
+        expireDate.setFullYear(today.getFullYear() + 1);
+        total = "18 000F";
+        linkPay = "https://pay.wave.com/m/M_sn_3rVgFeQKkRIX/c/sn/?amount=18000";
+        break;
+      default:
+        type = "Forfait inconnu";
+        total = "0F";
+    }
+    expireDate.setDate(expireDate.getDate() + 1);
+
+    function capitalizeFirstLetter(string) {
+      return string.charAt(0).toUpperCase() + string.slice(1);
+    }
+
+    // Ajout des données dans formData pour l'email utilisateur
+    formData.type = type;
+    formData.expire = capitalizeFirstLetter(formatDate(expireDate));
+    formData.total = total;
+    formData.linkPay = linkPay;
+
+    // Afficher un message de chargement
+    const submitButton = this.querySelector(".submit-button");
+    const originalText = submitButton.textContent;
+    submitButton.textContent = "Envoi en cours...";
+    submitButton.disabled = true;
+
+    // Envoi de l'email via EmailJS
+    emailjs
+      .send("service_er4fw0o", "template_pn2dkd9", formData) // Envoi à toi
+      .then(function (response) {
+        alert("Votre demande a été envoyée avec succès !");
+        form.reset();
+
+        // 👇 Envoi du mail automatique à l'utilisateur
+        emailjs
+          .send("service_er4fw0o", "template_dhbw166", formData)
+          .then(function (res) {
+            console.log("Email de confirmation envoyé à l'utilisateur !");
+          })
+          .catch(function (err) {
+            console.error("Erreur envoi email utilisateur :", err);
+          });
+      })
+      .catch(function (error) {
+        alert("Une erreur est survenue lors de l'envoi. Veuillez réessayer.");
+        console.error("EmailJS error:", error);
+      })
+      .finally(function () {
+        submitButton.textContent = originalText;
+        submitButton.disabled = false;
+      });
   });
 
 // Animation des cartes d'offres au scroll
@@ -61,10 +150,10 @@ document.querySelectorAll(".avantage-item").forEach((item) => {
 });
 
 function scrollToForm() {
-  const formElement = document.getElementById('contact');
-  formElement.scrollIntoView({ behavior: 'smooth' });
+  const formElement = document.getElementById("contact");
+  formElement.scrollIntoView({ behavior: "smooth" });
 }
 
-document.querySelectorAll('.abonnement-button').forEach(button => {
-  button.addEventListener('click', scrollToForm);
+document.querySelectorAll(".abonnement-button").forEach((button) => {
+  button.addEventListener("click", scrollToForm);
 });

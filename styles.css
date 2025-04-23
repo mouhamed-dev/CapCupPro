@@ -5,7 +5,8 @@
     --light-text: #666;
     --white: #fff;
 }
-::selection{
+
+::selection {
     background-color: var(--primary-color);
     color: black;
 }
@@ -80,7 +81,8 @@ body {
     margin-bottom: 20px;
     font-size: 2.5rem;
 }
-.offre-p{
+
+.offre-p {
     text-align: center;
     margin-bottom: 35px;
     font-size: 18px;
@@ -99,13 +101,13 @@ body {
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
 }
 
 .offre-card:hover {
-    transform: translateY(-50px);
+    transform: translateY(-12px) !important;
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
 }
 
@@ -134,8 +136,8 @@ body {
 
 .offre-card li {
     margin-bottom: 10px;
-    padding-left: 5px;
-    
+    padding-left: 10px;
+
 }
 
 .features li:before {
@@ -144,7 +146,7 @@ body {
     position: absolute;
     left: 0;
     font-weight: bold;
-    padding-left: 15px;
+    padding-left: 18px;
 }
 
 .abonnement-button {
@@ -171,7 +173,7 @@ body {
     font-size: 14px;
     font-weight: bold;
     transform: rotate(45deg) translateX(0px) translateY(-20px);
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     z-index: 1;
 }
 
@@ -185,9 +187,11 @@ body {
     margin-bottom: 50px;
     font-size: 2.5rem;
 }
-.avantages #span-takku{
+
+.avantages #span-takku {
     color: var(--primary-color);
 }
+
 .avantages-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -214,20 +218,22 @@ body {
     margin-bottom: 10px;
 }
 
-.avantage-item:hover{
+.avantage-item:hover {
     background-color: var(--primary-color);
 }
 
-.avantage-item:hover i{
+.avantage-item:hover i {
     color: var(--white);
 }
 
-.avantage-item:hover h3{
+.avantage-item:hover h3 {
     color: var(--white);
 }
-.avantage-item:hover p{
+
+.avantage-item:hover p {
     color: var(--white);
 }
+
 /* Section 4 - Contact */
 .contact {
     padding: 50px 0;
@@ -236,7 +242,7 @@ body {
 
 .contact h2 {
     text-align: center;
-    margin-bottom: 50px;
+    margin-bottom: 15px;
     font-size: 2.5rem;
 }
 
@@ -258,7 +264,8 @@ body {
     margin-bottom: 5px;
     font-weight: bold;
 }
-#nom{
+
+#nom {
     text-transform: capitalize;
 }
 
@@ -270,7 +277,8 @@ body {
     border-radius: 5px;
     font-size: 1rem;
 }
-#required{
+
+#required {
     color: rgb(216, 9, 9);
 }
 
@@ -322,7 +330,9 @@ select {
     background-size: 1em;
     padding-right: 30px;
 }
-
+option {
+    width: 30%;
+}
 /* Responsive Design */
 @media (max-width: 768px) {
     .hero h1 {
@@ -350,4 +360,4 @@ select {
     .phone-input-container .phone-prefix {
         width: 90px;
     }
-} 
+}
