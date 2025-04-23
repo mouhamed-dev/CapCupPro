@@ -445,7 +445,7 @@ option {
 
 .contact-item a:hover {
     color: var(--text-color);
-    text-decoration: underline;
+    text-decoration: none;
 }
 
 .footer-links ul,
