@@ -157,3 +157,10 @@ function scrollToForm() {
 document.querySelectorAll(".abonnement-button").forEach((button) => {
   button.addEventListener("click", scrollToForm);
 });
+
+function message() {
+  const numero = "221774731341";
+  const texte = "Bonjour ! je suis intéressé.e pour l'abonnement CapCut Pro.";
+  const lien = `https://wa.me/${numero}?text=${encodeURIComponent(texte)}`;
+  window.open(lien, "_blank");
+}
