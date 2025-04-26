@@ -504,7 +504,7 @@ option {
     font-size: 1rem;
     color: var(--text-color);
 }
-/* .whatsapp-float {
+.whatsapp-float {
     position: fixed;
     bottom: 20px;
     right: 20px;
@@ -525,12 +525,12 @@ option {
   }
   .whatsapp-float:hover {
     transform: scale(1.1);
-    background-color: #1ebea5;
+    background-color: rgb(90, 238, 134);
   }
   
   .fab.fa-whatsapp {
     vertical-align: middle;
-}  */ 
+} 
 
 
 /* Media Queries pour le Footer */
