@@ -504,7 +504,7 @@ option {
     font-size: 1rem;
     color: var(--text-color);
 }
-.whatsapp-float {
+/* .whatsapp-float {
     position: fixed;
     bottom: 15px;
     right: 15px;
@@ -530,7 +530,8 @@ option {
   
   .fab.fa-whatsapp {
     vertical-align: middle;
-} 
+}  */
+
 
 
 /* Media Queries pour le Footer */
