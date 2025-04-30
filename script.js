@@ -171,7 +171,7 @@ function shareWebsite() {
     navigator.share({
       title: 'Takku Liggeey - CapCut Pro',
       text: 'Abonnez-vous facilement à CapCut Pro via Takku Liggeey. Paiement rapide et sécurisé.',
-      url: 'https://mouhamed-dev.github.io/CapCupPro/'
+      url: window.location.href
     })
     .then(() => console.log('Partage réussi'))
     .catch((error) => console.log('Erreur de partage', error));
