@@ -164,3 +164,18 @@ function message() {
   const lien = `https://wa.me/${numero}?text=${encodeURIComponent(texte)}`;
   window.open(lien, "_blank");
 }
+
+
+function shareWebsite() {
+  if (navigator.share) {
+    navigator.share({
+      title: 'Takku Liggeey - CapCut Pro',
+      text: 'Abonnez-vous facilement à CapCut Pro via Takku Liggeey. Paiement rapide et sécurisé.',
+      url: 'https://mouhamed-dev.github.io/CapCupPro/'
+    })
+    .then(() => console.log('Partage réussi'))
+    .catch((error) => console.log('Erreur de partage', error));
+  } else {
+    alert("Le partage n'est pas pris en charge sur ce navigateur.");
+  }
+}
