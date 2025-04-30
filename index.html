@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" itemscope itemtype="http://schema.org/WebSite">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -35,11 +35,11 @@
 </head>
 <body>
     <!-- Section 1 - Accueil & Présentation -->
-    <section id="accueil" class="hero">
+    <section id="accueil" class="hero" itemscope itemtype="http://schema.org/Organization">
         <div class="container">
-            <h1>Takku Liggeey</h1>
-            <h2>Montez vos vidéos comme un pro avec CapCut Premium</h2>
-            <p>Takku Liggeey vous propose l'activation de CapCut Pro à un prix abordable. Profitez de toutes les fonctionnalités premium pour créer des vidéos professionnelles sans limites.</p>
+            <h1 itemprop="name">Takku Liggeey</h1>
+            <h2 itemprop="description">Montez vos vidéos comme un pro avec CapCut Premium</h2>
+            <p itemprop="slogan">Takku Liggeey vous propose l'activation de CapCut Pro à un prix abordable. Profitez de toutes les fonctionnalités premium pour créer des vidéos professionnelles sans limites.</p>
             <button class="cta-button" onclick="scrollToSection('offres')">Découvrir les offres</button>
         </div>
     </section>
@@ -51,10 +51,11 @@
             <p class="offre-p">Choisissez l'offre qui vous convient</p>
             <div class="offres-grid">
                 <!-- Offre 1 Mois -->
-                <div class="offre-card">
-                    <h3>1 Mois</h3>
-                    <div class="prix">2500F</div>
-                    <ul class="features">
+                <div class="offre-card" itemscope itemtype="http://schema.org/Offer">
+                    <h3 itemprop="name">1 Mois</h3>
+                    <div class="prix" itemprop="price">2500F</div>
+                    <meta itemprop="priceCurrency" content="XOF" />
+                    <ul class="features" itemprop="description">
                         <li>Accès à toutes les fonctionnalités premium</li>
                         <li>Exportation sans filigrane</li>
                         <li>Effets visuels avancés</li>
@@ -64,11 +65,12 @@
                 </div>
 
                 <!-- Offre 3 Mois -->
-                <div class="offre-card">
+                <div class="offre-card" itemscope itemtype="http://schema.org/Offer">
                     <div class="badge-populaire">Populaire</div>
-                    <h3>3 Mois</h3>
-                    <div class="prix">6000F</div>
-                    <ul class="features">
+                    <h3 itemprop="name">3 Mois</h3>
+                    <div class="prix" itemprop="price">6000F</div>
+                    <meta itemprop="priceCurrency" content="XOF" />
+                    <ul class="features" itemprop="description">
                         <li>Tout ce qui est inclus dans 1 mois</li>
                         <li>Économisez 1 500F</li>
                         <li>Bibliothèque musicale pro</li>
@@ -78,11 +80,11 @@
                 </div>
 
                 <!-- Offre 6 Mois -->
-                <div class="offre-card">
-                    <h3>6 Mois</h3>
-                    <div class="prix">10 500F</div>
-                    <!-- <div class="prix-mois">soit 1750F/mois</div> -->
-                    <ul class="features">
+                <div class="offre-card" itemscope itemtype="http://schema.org/Offer">
+                    <h3 itemprop="name">6 Mois</h3>
+                    <div class="prix" itemprop="price">10 500F</div>
+                    <meta itemprop="priceCurrency" content="XOF" />
+                    <ul class="features" itemprop="description">
                         <li>Tout ce qui est inclus dans 3 mois</li>
                         <li>Économisez 4 500F</li>
                         <li>Accès aux modèles exclusifs</li>
@@ -92,12 +94,12 @@
                 </div>
 
                 <!-- Offre 1 An -->
-                <div class="offre-card">
+                <div class="offre-card" itemscope itemtype="http://schema.org/Offer">
                     <div class="badge-populaire">Spéciale</div>
-                    <h3>1 An</h3>
-                    <div class="prix">18 000F</div>
-                    <!-- <div class="prix-mois">soit 1500F/mois</div> -->
-                    <ul class="features">
+                    <h3 itemprop="name">1 An</h3>
+                    <div class="prix" itemprop="price">18 000F</div>
+                    <meta itemprop="priceCurrency" content="XOF" />
+                    <ul class="features" itemprop="description">
                         <li>Tout ce qui est inclus pour 6 mois</li>
                         <li>Économisez 12 000F</li>
                         <li>Support premium 7j/7</li>
@@ -154,10 +156,10 @@
         <div class="container">
             <h2>Passer Votre Commande</h2>
             <p class="offre-p">Nous vous contacterons pour le paiement</p>
-            <form id="commande-form">
+            <form id="commande-form" itemscope itemtype="http://schema.org/ContactPoint">
                 <div class="form-group">
                     <label for="nom">Nom complet <span id="required">*</span></label>
-                    <input type="text" id="nom" name="nom" placeholder="ex: Fatima Sow" required>
+                    <input type="text" id="nom" name="nom" placeholder="ex: Fatima Sow" required itemprop="name">
                 </div>
                 <div class="form-group">
                     <label for="whatsapp">Numéro WhatsApp <span id="required">*</span></label>
@@ -176,12 +178,12 @@
                             <option value="+229">+229 🇧🇯</option>
                             <option value="+33">+33 🇫🇷</option>
                         </select>
-                        <input type="tel" id="whatsapp" name="whatsapp" required placeholder="Votre numéro">
+                        <input type="tel" id="whatsapp" name="whatsapp" required placeholder="Votre numéro" itemprop="telephone">
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="email">Adresse email <span id="required">*</span></label>
-                    <input type="email" id="email" name="email" placeholder="Votre adresse mail" required>
+                    <input type="email" id="email" name="email" placeholder="Votre adresse mail" required itemprop="email">
                 </div>
                 <div class="form-group">
                     <label for="forfait">Forfait <span id="required">*</span></label>
@@ -196,27 +198,27 @@
             </form>
         </div>
     </section>
-    
+
     <script src="script.js"></script>
     <!-- Elfsight WhatsApp Chat | Untitled WhatsApp Chat -->
     <script src="https://static.elfsight.com/platform/platform.js" async></script>
     <div class="elfsight-app-962186ba-a3bc-4033-b41e-f5ed996ae258" data-elfsight-app-lazy></div>
     
     <!-- Footer -->
-    <footer class="footer">
+    <footer class="footer" itemscope itemtype="http://schema.org/Organization">
         <div class="container footer-content">
             <div class="footer-logo">
-                <img src="img/Takku Ligueyy - logo blanc.png" alt="Takku Liggeey Logo" class="round-logo">
+                <img src="img/Takku Ligueyy - logo blanc.png" alt="Takku Liggeey Logo" class="round-logo" itemprop="logo">
             </div>
             <div class="footer-contact">
                 <h3>Contactez-nous</h3>
                 <div class="contact-item">
                     <i class="fas fa-envelope"></i>
-                    <a href="mailto:takkuliggeey@gmail.com">takkuliggeey@gmail.com</a>
+                    <a href="mailto:takkuliggeey@gmail.com" itemprop="email">takkuliggeey@gmail.com</a>
                 </div>
                 <div class="contact-item">
                     <i class="fab fa-whatsapp" onclick="message()"></i>
-                    <a href="https://wa.me/221774731341?text=Bonjour%20!%20je%20suis%20intéressé.e%20pour%20l'abonnement%20CapCut%20Pro." target="_blank">+221 77 473 13 41</a>
+                    <a href="https://wa.me/221774731341?text=Bonjour%20!%20je%20suis%20intéressé.e%20pour%20l'abonnement%20CapCut%20Pro." target="_blank" itemprop="telephone">+221 77 473 13 41</a>
                 </div>
             </div>
             <div class="footer-links">
@@ -249,7 +251,7 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2025 Takku Liggeey. Tous droits réservés.</p>
+            <p>&copy; 2025 <span itemprop="name">Takku Liggeey</span>. Tous droits réservés.</p>
         </div>
     </footer>
 
@@ -258,4 +260,4 @@
     <i class="fab fa-whatsapp"></i>
   </a> -->
 </body>
-</html> 
+</html>
