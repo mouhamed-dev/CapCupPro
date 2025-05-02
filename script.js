@@ -85,12 +85,43 @@ document
     formData.expire = capitalizeFirstLetter(formatDate(expireDate));
     formData.total = total;
     formData.linkPay = linkPay;
+    formData.date = today.toLocaleString("fr-FR"); // format DD/MM/YYYY HH:MM
 
-    // Afficher un message de chargement
-    const submitButton = this.querySelector(".submit-button");
-    const originalText = submitButton.textContent;
-    submitButton.textContent = "Envoi en cours...";
-    submitButton.disabled = true;
+    // Créer le tableau dans l'ordre des colonnes de la feuille
+    const ligne = [
+      formData.date,
+      formData.from_name,
+      formData.whatsapp,
+      formData.email,
+      formData.type,
+      formData.expire,
+      formData.total,
+      formData.linkPay,
+    ];
+
+    // DEBUG : Vérification de l'envoi vers Google Sheets
+    console.log("Envoi vers Google Sheets...");
+    console.log(ligne);
+    
+    // Envoi des données à Google Sheets
+    fetch(
+      "https://script.google.com/macros/s/AKfycbw_KJeH5dPApUsg7GGIn9Z7Ojv2MZ4YRjcknQMPtgLo6fdh3BjYDKK7cerdPOSl4_KB/exec",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ ligne }), // 👈 important : l'objet a une clé `ligne`
+      }
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("Réponse Google Sheets :", data);
+        if (data.status !== "success") alert("Erreur : " + data.message);
+      })
+      .catch((error) => {
+        console.log("Erreur Google Sheets :", error);
+      });
 
     // Envoi de l'email via EmailJS
     emailjs
@@ -165,16 +196,16 @@ function message() {
   window.open(lien, "_blank");
 }
 
-
 function shareWebsite() {
   if (navigator.share) {
-    navigator.share({
-      title: 'Takku Liggeey - CapCut Pro',
-      text: 'Abonnez-vous facilement à CapCut Pro via Takku Liggeey. Paiement rapide et sécurisé.',
-      url: window.location.href
-    })
-    .then(() => console.log('Partage réussi'))
-    .catch((error) => console.log('Erreur de partage', error));
+    navigator
+      .share({
+        title: "Takku Liggeey - CapCut Pro",
+        text: "Abonnez-vous facilement à CapCut Pro via Takku Liggeey. Paiement rapide et sécurisé.",
+        url: window.location.href,
+      })
+      .then(() => console.log("Partage réussi"))
+      .catch((error) => console.log("Erreur de partage", error));
   } else {
     alert("Le partage n'est pas pris en charge sur ce navigateur.");
   }
