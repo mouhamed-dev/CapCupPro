@@ -87,40 +87,34 @@ document
     formData.linkPay = linkPay;
     formData.date = today.toLocaleString("fr-FR"); // format DD/MM/YYYY HH:MM
 
-    // Créer le tableau dans l'ordre des colonnes de la feuille
-    const ligne = [
-      formData.date,
-      formData.from_name,
-      formData.whatsapp,
-      formData.email,
-      formData.type,
-      formData.expire,
-      formData.total,
-      formData.linkPay,
-    ];
+    // Créer l'objet ligne avec les bons noms de colonnes
+    const ligne = {
+      "Date/Heure": formData.date,
+      Nom: formData.from_name,
+      WhatsApp: formData.whatsapp,
+      Email: formData.email,
+      "Type de forfait": formData.type,
+      "Date d'expiration": formData.expire,
+      "Montant total": formData.total,
+      "Lien de paiement": formData.linkPay,
+    };
 
     // DEBUG : Vérification de l'envoi vers Google Sheets
     console.log("Envoi vers Google Sheets...");
     console.log(ligne);
-    
-    // Envoi des données à Google Sheets
-    fetch(
-      "https://script.google.com/macros/s/AKfycbw_KJeH5dPApUsg7GGIn9Z7Ojv2MZ4YRjcknQMPtgLo6fdh3BjYDKK7cerdPOSl4_KB/exec",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ ligne }), // 👈 important : l'objet a une clé `ligne`
-      }
-    )
+
+    // Envoi des données à SheetDB
+    fetch("https://sheetdb.io/api/v1/2ci04jkor02fc", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ data: [ligne] }),
+    })
       .then((response) => response.json())
       .then((data) => {
-        console.log("Réponse Google Sheets :", data);
-        if (data.status !== "success") alert("Erreur : " + data.message);
+        console.log("Réponse SheetDB :", data);
       })
       .catch((error) => {
-        console.log("Erreur Google Sheets :", error);
+        console.log("Erreur SheetDB :", error);
       });
 
     // Envoi de l'email via EmailJS
